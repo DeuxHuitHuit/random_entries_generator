@@ -19,8 +19,8 @@
         </author>
     </authors>
     <releases>
-        <release version="1.0.0" date="TBA" min="2.6.0" max="2.6.x">
-            - First release
+        <release version="1.0.0" date="2015-05-21" min="2.6.0" max="2.6.x">
+            - First release, supporting only core fields
         </release>
     </releases>
 </extension>
