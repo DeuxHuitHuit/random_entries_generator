@@ -27,13 +27,13 @@ For more information, see <http://getsymphony.com/learn/tasks/view/install-an-ex
 
 ### Help, my field is blank!!! ###
 
-In order to generate data for a particular field, this extension requires a [field adapter](https://github.com/DeuxHuitHuit/random_entries_generator/blob/master/lib/class.fieldadapter.php)
+In order to generate data for a particular field, this extension requires a [field adapter](https://github.com/DeuxHuitHuit/random_entries_generator/blob/dev/lib/class.fieldadapter.php)
 that will populate the data in the database.
 
 We currently support only core fields.
 If a field stays blank, it's probably because the adapter for it does not exists.
 
-You can [look here](https://github.com/DeuxHuitHuit/random_entries_generator/tree/master/lib/adapters)
+You can [look here](https://github.com/DeuxHuitHuit/random_entries_generator/tree/dev/lib/adapters)
 to see if there is already an adapter for the field in question. If not, feel free
 to implement it (it's really easy!) and send a Pull Request.
 
