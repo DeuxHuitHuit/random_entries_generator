@@ -31,6 +31,7 @@
             return 'oembed';
         }
         public static function getUrl($drivers) {
+            shuffle(self::$randomness);
             foreach (self::$randomness as $driver => $values) {
                 if (in_array($driver, $drivers)) {
                     return $values[array_rand($values, 1)];
