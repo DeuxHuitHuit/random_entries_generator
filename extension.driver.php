@@ -5,7 +5,7 @@
     */
     
     if(!defined("__IN_SYMPHONY__")) die("<h2>Error</h2><p>You cannot directly access this file</p>");
-    
+    require_once(EXTENSIONS . '/random_entries_generator/lib/class.fieldadaptermanager.php');
     /**
      *
      * @author Deux Huit Huit
@@ -34,11 +34,16 @@
 
         /* ********* DELEGATES ******* */
 
-        public function appendElement($context)
+        public function appendElement(array $context)
         {
-            if ($this->mustIncludeButton()) {
+            $c = Administration::instance()->getPageCallback();
+            if (is_array($c['context']) && $this->mustIncludeButton()) {
                 $page = $context['oPage'];
-                $button = new XMLElement('button', __('Create random entry'));
+                $section = General::sanitize(isset($c['context']['section_handle']) ? $c['context']['section_handle'] : $c['context'][1]);
+                $button = new XMLElement('a', __('Create random entry'), array(
+                    'href' => APPLICATION_URL . '/extension/random_entries_generator/create/?s=' . $section,
+                    'class' => 'button'
+                ));
                 $page->insertAction($button, true);
             }
         }

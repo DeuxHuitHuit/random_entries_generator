@@ -12,18 +12,18 @@
      * https://deuxhuithuit.com/
      *
      */
-    class InputFieldAdapter extends FieldAdapter
+    class TextareaFieldAdapter extends FieldAdapter
     {
         public function type()
         {
-            return 'input';
+            return 'textarea';
         }
 
         public function data($section, $field)
         {
             return array(
-                'value' => 'Lorem hipster',
-                'handle' => 'lorem-hipster'
+                'value' => 'Lorem that shit',
+                'value_formatted' => 'Lorem that shit'
             );
         }
     }

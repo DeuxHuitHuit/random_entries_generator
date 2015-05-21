@@ -12,8 +12,17 @@
      * https://deuxhuithuit.com/
      *
      */
-    abstract class FieldAdapter
+    class CheckboxFieldAdapter extends FieldAdapter
     {
-        abstract function type();
-        abstract function data($section, $field);
+        public function type()
+        {
+            return 'checkbox';
+        }
+
+        public function data($section, $field)
+        {
+            return array(
+                'value' => $field->get('default_state') == 'on' ? 'Yes' : 'No'
+            );
+        }
     }

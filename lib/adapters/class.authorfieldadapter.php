@@ -12,8 +12,17 @@
      * https://deuxhuithuit.com/
      *
      */
-    abstract class FieldAdapter
+    class AuthorFieldAdapter extends FieldAdapter
     {
-        abstract function type();
-        abstract function data($section, $field);
+        public function type()
+        {
+            return 'author';
+        }
+
+        public function data($section, $field)
+        {
+            return array(
+                'author_id' => array(Symphony::Author()->get('id'))
+            );
+        }
     }

@@ -12,8 +12,17 @@
      * https://deuxhuithuit.com/
      *
      */
-    abstract class FieldAdapter
+    class DateFieldAdapter extends FieldAdapter
     {
-        abstract function type();
-        abstract function data($section, $field);
+        public function type()
+        {
+            return 'date';
+        }
+
+        public function data($section, $field)
+        {
+            return array(
+                'value' => DateTimeObj::get('c', $field->get('pre_populate'))
+            );
+        }
     }
