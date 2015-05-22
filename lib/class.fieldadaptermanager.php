@@ -16,6 +16,7 @@
     final class FieldAdapterManager
     {
         private static $managers = array();
+
         public static function get($type)
         {
             if (empty(self::$managers)) {
@@ -26,7 +27,7 @@
             }
             return self::$managers[$type];
         }
-        
+
         public static function load()
         {
             $adapters = General::listStructure(REG_ADAPTERS_DIR, '/class.[a-zA-Z0-9]+adapter.php/', false, 'asc');
