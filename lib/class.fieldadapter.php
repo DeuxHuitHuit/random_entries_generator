@@ -16,4 +16,12 @@
     {
         abstract function type();
         abstract function data($section, $field);
+
+        protected static final function format($field, $value) {
+            if ($field->get('formatter')) {
+                $formatter = TextformatterManager::create($field->get('formatter'));
+                return $formatter->run($value);
+            }
+            return $value;
+        }
     }

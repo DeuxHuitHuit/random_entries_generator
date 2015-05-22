@@ -25,14 +25,9 @@
             $value = TextGenerator::generate(array(
                 'paragraphs' => $size > 0 ? (int)($size / 5) : 1
             ));
-            $value_formatted = $value;
-            if ($field->get('formatter')) {
-                $formatter = TextformatterManager::create($field->get('formatter'));
-                $value_formatted = $formatter->run($value);
-            }
             return array(
                 'value' => $value,
-                'value_formatted' => $value_formatted,
+                'value_formatted' => static::format($field, $value)
             );
         }
     }
