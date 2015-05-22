@@ -22,8 +22,9 @@
         {
             $value = array();
             $options = array_merge($options, self::$defaultOptions, $options);
+            $plimit = max(1, General::intval($options['paragraphs']));
             $pcount = count(self::$paragraphs);
-            for ($x = 0; $x < General::intval($options['paragraphs']); $x++) {
+            for ($x = 0; $x < $plimit; $x++) {
                 $value[] = self::$paragraphs[$x % $pcount];
             }
             $value = implode(PHP_EOL . PHP_EOL, $value);
