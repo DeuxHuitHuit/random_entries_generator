@@ -13,9 +13,9 @@
      * https://deuxhuithuit.com/
      *
      */
-    class FieldAdapterManager
+    final class FieldAdapterManager
     {
-        static $managers = array();
+        private static $managers = array();
         public static function get($type)
         {
             if (empty(self::$managers)) {
