@@ -30,6 +30,6 @@
                 }
                 $multingual_values[$lc] = $url;
             }
-            return return $this->processRawFieldData($field, $multingual_values);
+            return $this->processRawFieldData($field, $multingual_values);
         }
     }
