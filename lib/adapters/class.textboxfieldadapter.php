@@ -30,16 +30,21 @@
         public function data($section, $field)
         {
             $status;
-            $size = $field->get('text_size');
-            $length = General::intval($field->get('text_length'));
-            $value = TextGenerator::generate(array(
-                'max-length' => $size == 'single' ? min(80, $length) : $length,
-                'paragraphs' => self::$sizes[$size]
-            ));
+            $value = $this->generateValue($field);
             $data = $field->processRawFieldData($value, $status);
             if ($status != Field::__OK__) {
                 return null;
             }
             return $data;
+        }
+
+        public function generateValue($field)
+        {
+            $size = $field->get('text_size');
+            $length = General::intval($field->get('text_length'));
+            return TextGenerator::generate(array(
+                'max-length' => $size == 'single' ? min(80, $length) : $length,
+                'paragraphs' => self::$sizes[$size]
+            ));
         }
     }
