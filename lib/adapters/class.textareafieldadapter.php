@@ -21,9 +21,18 @@
 
         public function data($section, $field)
         {
+            $size = General::intval($field->get('size'));
+            $value = TextGenerator::generate(array(
+                'paragraphs' => $size > 0 ? (int)($size / 5) : 1
+            ));
+            $value_formatted = $value;
+            if ($field->get('formatter')) {
+                $formatter = TextformatterManager::create($field->get('formatter'));
+                $value_formatted = $formatter->run($value);
+            }
             return array(
-                'value' => 'Lorem that shit',
-                'value_formatted' => 'Lorem that shit'
+                'value' => $value,
+                'value_formatted' => $value_formatted,
             );
         }
     }

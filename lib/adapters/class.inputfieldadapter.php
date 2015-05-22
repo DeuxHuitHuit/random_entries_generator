@@ -21,9 +21,12 @@
 
         public function data($section, $field)
         {
+            $value = TextGenerator::generate(array(
+                'max-length' => 80
+            ));
             return array(
-                'value' => 'Lorem hipster',
-                'handle' => 'lorem-hipster'
+                'value' => $value,
+                'handle' => Lang::createHandle($value)
             );
         }
     }

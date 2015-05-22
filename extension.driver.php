@@ -6,6 +6,7 @@
     
     if(!defined("__IN_SYMPHONY__")) die("<h2>Error</h2><p>You cannot directly access this file</p>");
     require_once(EXTENSIONS . '/random_entries_generator/lib/class.fieldadaptermanager.php');
+    require_once(EXTENSIONS . '/random_entries_generator/lib/generators/class.textgenerator.php');
     /**
      *
      * @author Deux Huit Huit
