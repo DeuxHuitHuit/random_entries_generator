@@ -41,15 +41,10 @@
         }
         public function data($section, $field)
         {
-            $status;
             $url = static::getUrl(explode(',', $field->get('driver')));
             if ($url == null) {
                 return null;
             }
-            $data = $field->processRawFieldData($url, $status);
-            if ($status != Field::__OK__) {
-                return null;
-            }
-            return $data;
+            return $this->processRawFieldData($field, $url);
         }
     }

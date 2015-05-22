@@ -21,7 +21,6 @@
 
         public function data($section, $field)
         {
-            $status;
             $drivers = explode(',', $field->get('driver'));
             $multingual_values = array();
             foreach (FLang::getLangs() as $lc) {
@@ -31,10 +30,6 @@
                 }
                 $multingual_values[$lc] = $url;
             }
-            $data = $field->processRawFieldData($multingual_values, $status);
-            if ($status != Field::__OK__) {
-                return null;
-            }
-            return $data;
+            return return $this->processRawFieldData($field, $multingual_values);
         }
     }

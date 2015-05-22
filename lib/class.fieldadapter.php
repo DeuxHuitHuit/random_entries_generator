@@ -24,4 +24,14 @@
             }
             return $value;
         }
+
+        protected function processRawFieldData($field, $data)
+        {
+            $status;
+            $data = $field->processRawFieldData($data, $status);
+            if ($status != Field::__OK__) {
+                return null;
+            }
+            return $data;
+        }
     }

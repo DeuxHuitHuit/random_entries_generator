@@ -21,7 +21,6 @@
 
         public function data($section, $field)
         {
-            $status;
             $multingual_values = array();
             foreach (FLang::getLangs() as $lc) {
                 // fix length since we add chars...
@@ -29,10 +28,6 @@
                 $value = $this->generateValue($field, $length);
                 $multingual_values[$lc] = strtoupper($lc) . ' ' . $value;
             }
-            $data = $field->processRawFieldData($multingual_values, $status);
-            if ($status != Field::__OK__) {
-                return null;
-            }
-            return $data;
+            return $this->processRawFieldData($field, $multingual_values);
         }
     }

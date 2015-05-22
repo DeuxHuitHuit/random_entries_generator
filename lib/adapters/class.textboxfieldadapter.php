@@ -29,13 +29,8 @@
 
         public function data($section, $field)
         {
-            $status;
             $value = $this->generateValue($field);
-            $data = $field->processRawFieldData($value, $status);
-            if ($status != Field::__OK__) {
-                return null;
-            }
-            return $data;
+            return $this->processRawFieldData($field, $value);
         }
 
         public function generateValue($field, $length = null)
