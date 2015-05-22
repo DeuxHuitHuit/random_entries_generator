@@ -38,10 +38,12 @@
             return $data;
         }
 
-        public function generateValue($field)
+        public function generateValue($field, $length = null)
         {
             $size = $field->get('text_size');
-            $length = General::intval($field->get('text_length'));
+            if ($length == null) {
+                $length = max(0, General::intval($field->get('text_length')));
+            }
             return TextGenerator::generate(array(
                 'max-length' => $size == 'single' ? min(80, $length) : $length,
                 'paragraphs' => self::$sizes[$size]
