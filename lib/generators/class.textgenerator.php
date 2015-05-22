@@ -24,8 +24,9 @@
             $options = array_merge($options, self::$defaultOptions, $options);
             $plimit = max(1, General::intval($options['paragraphs']));
             $pcount = count(self::$paragraphs);
+            $offset = array_rand(self::$paragraphs, 1);
             for ($x = 0; $x < $plimit; $x++) {
-                $value[] = self::$paragraphs[$x % $pcount];
+                $value[] = self::$paragraphs[($x + $offset) % $pcount];
             }
             $value = implode(PHP_EOL . PHP_EOL, $value);
             $maxLength = General::intval($options['max-length']);
