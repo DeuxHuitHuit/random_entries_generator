@@ -58,14 +58,12 @@
                 $entry = EntryManager::create();
                 $entry->set('section_id', $sectionId);
                 foreach ($fields as $field) {
-                    //var_dump($field->get());die;
                     $adapter = FieldAdapterManager::get($field->get('type'));
                     if (!$adapter) {
                         continue;
                     }
                     $entry->setData($field->get('id'), $adapter->data($section, $field));
                 }
-                //var_dump($entry->getData());//die;
                 if (!$entry->commit()) {
                     throw new Exception('Could not commit entry!');
                 }
