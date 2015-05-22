@@ -22,11 +22,11 @@
         public function data($section, $field)
         {
             $status;
-            // fix length since we add chars...
-            $length = General::intval($field->get('text_length')) - 3;
-            $value = $this->generateValue($field, $length);
             $multingual_values = array();
             foreach (FLang::getLangs() as $lc) {
+                // fix length since we add chars...
+                $length = General::intval($field->get('text_length')) - strlen($lc) - 1;
+                $value = $this->generateValue($field, $length);
                 $multingual_values[$lc] = strtoupper($lc) . ' ' . $value;
             }
             $data = $field->processRawFieldData($multingual_values, $status);
