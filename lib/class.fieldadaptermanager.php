@@ -37,6 +37,9 @@
                     // get class name
                     $class = str_replace(array('class.', '.php'), '', $class);
                     $instance = new $class();
+                    if (!($instance instanceof FieldAdapter)) {
+                        throw new Exception('Adapter class must extends FieldAdapter');
+                    }
                     self::$managers[$instance->type()] = $instance;
                 } catch (Exception $ex) {
                     throw new SymphonyErrorPage($ex->getMessage());
