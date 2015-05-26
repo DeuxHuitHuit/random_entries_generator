@@ -25,6 +25,19 @@ For more information, see <http://getsymphony.com/learn/tasks/view/install-an-ex
 - Click on the "Create Random Entry" button.
 - Enjoy some beer.
 
+### SUPPORTED FIELDS ###
+
+- All core fields (author, checkbox, date, input, select box, tag list, textarea, upload)
+- [Color Chooser](http://symphonyextensions.com/extensions/color_chooser_field/)
+- [Date Time](http://symphonyextensions.com/extensions/datetime/)
+- [Image Upload](http://symphonyextensions.com/extensions/image_upload/)
+- [Multilingual Textbox](http://symphonyextensions.com/extensions/multilingual_field/)
+- [Multilingual Image Upload](http://symphonyextensions.com/extensions/multilingual_image_upload/)
+- [Multilingual oEmbed](http://symphonyextensions.com/extensions/multilingual_oembed_field/)
+- [oEmbed](http://symphonyextensions.com/extensions/oembed_field/)
+- [Order Entries](http://symphonyextensions.com/extensions/order_entries/)
+- [Textbox](http://symphonyextensions.com/extensions/textboxfield/)
+
 ### Help, my field is blank!!! ###
 
 In order to generate data for a particular field, this extension requires a [field adapter](https://github.com/DeuxHuitHuit/random_entries_generator/blob/dev/lib/class.fieldadapter.php)
