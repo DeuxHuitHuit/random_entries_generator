@@ -18,6 +18,8 @@
             'width' => 1920,
             'height' => 1080,
             'filename' => 'image.jpg',
+            'type' => 'jpg',
+            'url-format' => 'http://placehold.it/%sx%s/%s/%s.%s'
         );
         public static function generate($options)
         {
