@@ -42,6 +42,55 @@
         abstract function data($section, $field);
 
         /**
+         *
+         */
+        public final function generateData($section, $field)
+        {
+            /**
+             * Just prior to generating random data for the $field
+             *
+             * @delegate EntriesPreCreateRandomData
+             * @param string $context
+             * '/publish/'
+             * @param FieldAdapter $adapter
+             * @param Field $field
+             * @param Section $section
+             */
+            Symphony::ExtensionManager()->notifyMembers(
+                'EntriesPreCreateRandomData',
+                '/publish/',
+                array(
+                    'adapter' => $this,
+                    'field' => &$field,
+                    'section' => &$section,
+                )
+            );
+            $result = $this->data($section, $field);
+            /**
+             * Just after generating random data for the $field
+             *
+             * @delegate EntriesPostCreateRandomData
+             * @param string $context
+             * '/publish/'
+             * @param FieldAdapter $adapter
+             * @param Field $field
+             * @param Section $section
+             * @param array $result
+             */
+            Symphony::ExtensionManager()->notifyMembers(
+                'EntriesPostCreateRandomData',
+                '/publish/',
+                array(
+                    'adapter' => $this,
+                    'field' => &$field,
+                    'section' => &$section,
+                    'result' => &$result,
+                )
+            );
+            return $result;
+        }
+
+        /**
          * If the field has a 'formatter' settings, than we create that formatter
          * and format the $value parameter.
          *

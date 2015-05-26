@@ -62,7 +62,7 @@
                     if (!$adapter) {
                         continue;
                     }
-                    $entry->setData($field->get('id'), $adapter->data($section, $field));
+                    $entry->setData($field->get('id'), $adapter->generateData($section, $field));
                 }
                 if (!$entry->commit()) {
                     throw new Exception('Could not commit entry!');
