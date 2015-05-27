@@ -27,7 +27,7 @@ For more information, see <http://getsymphony.com/learn/tasks/view/install-an-ex
 
 ### SUPPORTED FIELDS ###
 
-- All core fields (author, checkbox, date, input, select box, tag list, textarea, upload)
+- **All core fields** (author, checkbox, date, input, select box, tag list, textarea, upload)
 - [Color Chooser](http://symphonyextensions.com/extensions/color_chooser_field/)
 - [Date Time](http://symphonyextensions.com/extensions/datetime/)
 - [Image Upload](http://symphonyextensions.com/extensions/image_upload/)
