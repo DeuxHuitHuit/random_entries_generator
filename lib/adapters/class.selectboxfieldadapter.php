@@ -32,7 +32,11 @@
                 if (!Symphony::Database()->tableExists("tbl_entries_data_$fieldId")) {
                     return null;
                 }
-                $result = Symphony::Database()->fetch("SELECT * FROM tbl_entries_data_$fieldId LIMIT 1");
+                $result = Symphony::Database()->fetch("
+                    SELECT * 
+                        FROM tbl_entries_data_$fieldId
+                        LIMIT 1
+                ");
                 if (empty($result)) {
                     return null;
                 }

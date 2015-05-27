@@ -36,6 +36,7 @@ For more information, see <http://getsymphony.com/learn/tasks/view/install-an-ex
 - [Multilingual oEmbed](http://symphonyextensions.com/extensions/multilingual_oembed_field/)
 - [oEmbed](http://symphonyextensions.com/extensions/oembed_field/)
 - [Order Entries](http://symphonyextensions.com/extensions/order_entries/)
+- [Select Box Link](http://symphonyextensions.com/extensions/selectbox_link_field/)
 - [Textbox](http://symphonyextensions.com/extensions/textboxfield/)
 
 ### Help, my field is blank!!! ###
