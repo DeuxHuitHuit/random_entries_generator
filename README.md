@@ -4,6 +4,16 @@ Version: 1.0.x
 
 > A really quick way to create dummy entries for Symphony CMS
 
+## TL;DR
+
+1. [REQUIREMENTS][]
+2. [INSTALLATION][]
+3. [HOW TO USE][]
+4. [SUPPORTED FIELDS][]
+5. [DELEGATES][]
+6. [Help, my field is blank!!!][]
+7. [LICENSE][]
+
 ### REQUIREMENTS ###
 
 - Symphony CMS version 2.6.x and up (as of the day of the last release of this extension)
