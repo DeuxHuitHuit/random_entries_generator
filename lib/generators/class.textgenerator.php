@@ -16,13 +16,14 @@
     {
         protected static $defaultOptions = array(
             'max-length' => 0,
-            'paragraphs' => 1
+            'paragraphs' => 1,
+            'locale' => null
         );
         public static function generate($options)
         {
             $options = array_merge($options, self::$defaultOptions, $options);
             $plimit = max(1, General::intval($options['paragraphs']));
-            $faker = \Faker\Factory::create();
+            $faker = FieldAdapter::faker($options['locale']);
             $value = $faker->paragraphs($plimit);
             $value = implode(PHP_EOL . PHP_EOL, $value);
             $maxLength = General::intval($options['max-length']);

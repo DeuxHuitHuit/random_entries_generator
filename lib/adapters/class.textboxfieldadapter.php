@@ -33,7 +33,7 @@
             return $this->processRawFieldData($field, $value);
         }
 
-        public function generateValue($field, $length = null)
+        public function generateValue($field, $length = null, $locale = null)
         {
             $size = $field->get('text_size');
             if ($length == null) {
@@ -41,7 +41,8 @@
             }
             return TextGenerator::generate(array(
                 'max-length' => $size == 'single' ? min(80, $length) : $length,
-                'paragraphs' => self::$sizes[$size]
+                'paragraphs' => self::$sizes[$size],
+                'locale' => $locale,
             ));
         }
     }

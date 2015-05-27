@@ -21,9 +21,8 @@
 
         public function data($section, $field)
         {
-            $faker = \Faker\Factory::create();
             return array(
-                'value' => $faker->numberBetween(0, 9999),
+                'value' => static::faker()->numberBetween(0, 9999),
             );
         }
     }

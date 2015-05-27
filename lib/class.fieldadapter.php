@@ -17,6 +17,8 @@
      */
     abstract class FieldAdapter
     {
+        private static $fakers = array();
+
         /**
          * This method should return the type of the field
          * this class adapts for.
@@ -131,6 +133,7 @@
          * @param Field $field - The field object for which to forward the call
          * @param mixed $value - The fake raw data
          *
+         * @return array - The processed fake data array
          */
         protected function processRawFieldData($field, $data)
         {
@@ -140,5 +143,28 @@
                 return null;
             }
             return $data;
+        }
+
+        /**
+         * Get a Faker from the localized Faker pool.
+         * If a Faker does not exist for the desired locale, it will
+         * be created. If no $locale value is passed, the current Author
+         * locale is used.
+         *
+         * @param string $locale - The locale for which to find a Faker
+         *
+         * @return \Faker\Faker - The localized Faker instance
+         */
+        public static function faker($locale = null)
+        {
+            if (!$locale) {
+                $locale = Symphony::Author()->get('language');
+            }
+            if (isset(self::$fakers[$locale])) {
+                return self::$fakers[$locale];
+            }
+            $faker = \Faker\Factory::create($locale);
+            self::$fakers[$locale] = $faker;
+            return $faker;
         }
     }

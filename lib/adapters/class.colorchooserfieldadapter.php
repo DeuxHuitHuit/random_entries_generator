@@ -21,9 +21,8 @@
 
         public function data($section, $field)
         {
-            $faker = \Faker\Factory::create();
             return array(
-                'value' => $faker->hexcolor,
+                'value' => static::faker()->hexcolor,
             );
         }
     }

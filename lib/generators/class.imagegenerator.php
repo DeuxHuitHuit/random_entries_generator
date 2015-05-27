@@ -52,7 +52,7 @@
         {
             $value = array();
             $options = array_merge($options, self::$defaultOptions, $options);
-            $faker = \Faker\Factory::create();
+            $faker = FieldAdapter::faker();
             $foregroundcolor = static::fixColor($faker->hexcolor);
             $backgroundcolor = static::fixColor($faker->hexcolor);
             $url = sprintf($options['url-format'],
