@@ -39,6 +39,13 @@ For more information, see <http://getsymphony.com/learn/tasks/view/install-an-ex
 - [Select Box Link](http://symphonyextensions.com/extensions/selectbox_link_field/)
 - [Textbox](http://symphonyextensions.com/extensions/textboxfield/)
 
+### DELEGATES ###
+
+This extension also provides developers with two delegates,
+`EntriesPreCreateRandomData` and `EntriesPostCreateRandomData`.
+Delegates are fire once per field and offers developer the ability to change field and/or generated data. Check the
+[FieldAdapter::generateData() method](https://github.com/DeuxHuitHuit/random_entries_generator/blob/master/lib/class.fieldadapter.php) for more information on those delegates.
+
 ### Help, my field is blank!!! ###
 
 In order to generate data for a particular field, this extension requires a [field adapter](https://github.com/DeuxHuitHuit/random_entries_generator/blob/dev/lib/class.fieldadapter.php)
