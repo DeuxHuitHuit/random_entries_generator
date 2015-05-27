@@ -24,6 +24,7 @@ For more information, see <http://getsymphony.com/learn/tasks/view/install-an-ex
 - Go on the publish index or edit page of a section.
 - Click on the "Create Random Entry" button.
 - Enjoy some beer.
+- Repeat.
 
 ### SUPPORTED FIELDS ###
 
@@ -31,6 +32,7 @@ For more information, see <http://getsymphony.com/learn/tasks/view/install-an-ex
 - [Color Chooser](http://symphonyextensions.com/extensions/color_chooser_field/)
 - [Date Time](http://symphonyextensions.com/extensions/datetime/)
 - [Image Upload](http://symphonyextensions.com/extensions/image_upload/)
+- [Languages](http://symphonyextensions.com/extensions/languages/)
 - [Multilingual Textbox](http://symphonyextensions.com/extensions/multilingual_field/)
 - [Multilingual Image Upload](http://symphonyextensions.com/extensions/multilingual_image_upload/)
 - [Multilingual oEmbed](http://symphonyextensions.com/extensions/multilingual_oembed_field/)
@@ -49,13 +51,13 @@ Delegates are fire once per field and offers developer the ability to change fie
 
 ### Help, my field is blank!!! ###
 
-In order to generate data for a particular field, this extension requires a [field adapter](https://github.com/DeuxHuitHuit/random_entries_generator/blob/dev/lib/class.fieldadapter.php)
+In order to generate data for a particular field, this extension requires a [field adapter](https://github.com/DeuxHuitHuit/random_entries_generator/blob/master/lib/class.fieldadapter.php)
 that will populate the data in the database.
 
 If a field stays blank, it's probably because the adapter for it does not exists. If the adapter does exists,
 it is also possible that it does not cover all cases.
 
-You can [look here](https://github.com/DeuxHuitHuit/random_entries_generator/tree/dev/lib/adapters)
+You can [look here](https://github.com/DeuxHuitHuit/random_entries_generator/tree/master/lib/adapters)
 to see if there is already an adapter for the field in question. If not, feel free
 to implement it (it's really easy!) and send a Pull Request.
 
@@ -63,6 +65,6 @@ to implement it (it's really easy!) and send a Pull Request.
 
 [MIT](http://deuxhuithuit.mit-license.org)
 
-Made with love in Montréal by [Deux Huit Huit](https://deuxhuithuit.com)
+Made with love in Montréal by [Deux Huit Huit](https://deuxhuithuit.com/)
 
 Copyright (c) 2015
