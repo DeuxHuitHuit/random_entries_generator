@@ -164,6 +164,7 @@
                 return self::$fakers[$locale];
             }
             $faker = \Faker\Factory::create($locale);
+            $faker->seed(microtime());
             self::$fakers[$locale] = $faker;
             return $faker;
         }
