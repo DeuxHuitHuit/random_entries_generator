@@ -6,13 +6,13 @@ Version: 1.0.x
 
 ## TL;DR
 
-1. [REQUIREMENTS][]
-2. [INSTALLATION][]
-3. [HOW TO USE][]
-4. [SUPPORTED FIELDS][]
-5. [DELEGATES][]
-6. [Help, my field is blank!!!][]
-7. [LICENSE][]
+1. [REQUIREMENTS](#requirements)
+2. [INSTALLATION](#installation)
+3. [HOW TO USE](#how-to-use)
+4. [SUPPORTED FIELDS](#supported-fields)
+5. [DELEGATES](#delegates)
+6. [Help, my field is blank!!!](#help-my-field-is-blank)
+7. [LICENSE](#license)
 
 ### REQUIREMENTS ###
 
