@@ -31,6 +31,7 @@ For more information, see <http://getsymphony.com/learn/tasks/view/install-an-ex
 - **All core fields** (author, checkbox, date, input, select box, tag list, textarea, upload)
 - [Color Chooser](http://symphonyextensions.com/extensions/color_chooser_field/)
 - [Date Time](http://symphonyextensions.com/extensions/datetime/)
+- [Entry Relationship](http://symphonyextensions.com/extensions/entry_relationship_field/)
 - [Image Upload](http://symphonyextensions.com/extensions/image_upload/)
 - [Languages](http://symphonyextensions.com/extensions/languages/)
 - [Multilingual Textbox](http://symphonyextensions.com/extensions/multilingual_field/)
