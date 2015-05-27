@@ -28,7 +28,7 @@
             }
             else {
                 $fieldId = explode(',', $field->get('dynamic_options'));
-                $fieldId = $fieldId[0];
+                $fieldId = static::random($fieldId);
                 if (!Symphony::Database()->tableExists("tbl_entries_data_$fieldId")) {
                     return null;
                 }

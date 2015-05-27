@@ -32,7 +32,7 @@
                     $fieldId = $field->get('id');
                 }
                 else if (is_array($fieldId)) {
-                    $fieldId = current($fieldId);
+                    $fieldId = static::random($fieldId);
                 }
                 $result = Symphony::Database()->fetchCol('value', sprintf(
                     "SELECT DISTINCT `value` FROM tbl_entries_data_%d

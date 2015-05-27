@@ -108,6 +108,22 @@
         }
 
         /**
+         * Returns a random value from the $array.
+         * If the array is empty, it returns null
+         *
+         * @param array $array - The array to pick from
+         *
+         * @return mixed - a value from the array or null
+         */
+        protected static final function random(array $array)
+        {
+            if (empty($array)) {
+                return null;
+            }
+            return $array[array_rand($array, 1)];
+        }
+
+        /**
          * Forwards a call to Field::processRawFieldData using the $value
          * parameter as fake "raw" data. Also checks that the output status
          * is Field::__OK__. Returns null otherwise.
