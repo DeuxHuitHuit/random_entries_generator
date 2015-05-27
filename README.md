@@ -37,6 +37,7 @@ For more information, see <http://getsymphony.com/learn/tasks/view/install-an-ex
 - [Multilingual Textbox](http://symphonyextensions.com/extensions/multilingual_field/)
 - [Multilingual Image Upload](http://symphonyextensions.com/extensions/multilingual_image_upload/)
 - [Multilingual oEmbed](http://symphonyextensions.com/extensions/multilingual_oembed_field/)
+- [Number](http://symphonyextensions.com/extensions/numberfield/)
 - [oEmbed](http://symphonyextensions.com/extensions/oembed_field/)
 - [Order Entries](http://symphonyextensions.com/extensions/order_entries/)
 - [Pages](http://symphonyextensions.com/extensions/pagesfield/)
