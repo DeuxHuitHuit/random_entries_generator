@@ -22,12 +22,14 @@
         public function data($section, $field)
         {
             $fieldPageType = $field->get('page_types');
-            $types = array();
+            $negate = fieldPages::isFilterNegation($fieldPageType);
+            $types = ($negate ? preg_replace('/^not:\s*/i', null, $fieldPageType) : $fieldPageType);
+            $andOperation = fieldPages::isAndOperation($types);
+            $types = explode(($andOperation ? '+' : ','), $types);
+            $types = array_map('trim', $types);
+            $types = array_filter($types);
             $page_id = 0;
-            if (!empty($fieldPageType)) {
-                $types = explode(',', $fieldPageType);
-            }
-            $pages = fieldPages::fetchPageByTypes($types);
+            $pages = fieldPages::fetchPageByTypes($types, $andOperation, $negate);
             $page = null;
             if (empty($pages)) {
                 return null;
