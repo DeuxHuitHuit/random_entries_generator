@@ -19,6 +19,25 @@
         </author>
     </authors>
     <releases>
+        <release version="1.1.0" date="2015-05-27" min="2.6.0" max="2.6.x">
+            - Use [Faker](https://github.com/fzaninotto/Faker) as the main source of random data
+            - Added support for new fields:
+                - [Address Location](http://symphonyextensions.com/extensions/addresslocationfield/)
+                - [Color Chooser](http://symphonyextensions.com/extensions/color_chooser_field/)
+                - [Date Time](http://symphonyextensions.com/extensions/datetime/)
+                - [Entry Relationship](http://symphonyextensions.com/extensions/entry_relationship_field/)
+                - [Image Upload](http://symphonyextensions.com/extensions/image_upload/)
+                - [Languages](http://symphonyextensions.com/extensions/languages/)
+                - [Multilingual Textbox](http://symphonyextensions.com/extensions/multilingual_field/)
+                - [Multilingual Image Upload](http://symphonyextensions.com/extensions/multilingual_image_upload/)
+                - [Multilingual oEmbed](http://symphonyextensions.com/extensions/multilingual_oembed_field/)
+                - [Number](http://symphonyextensions.com/extensions/numberfield/)
+                - [oEmbed](http://symphonyextensions.com/extensions/oembed_field/)
+                - [Order Entries](http://symphonyextensions.com/extensions/order_entries/)
+                - [Pages](http://symphonyextensions.com/extensions/pagesfield/)
+                - [Select Box Link](http://symphonyextensions.com/extensions/selectbox_link_field/)
+                - [Textbox](http://symphonyextensions.com/extensions/textboxfield/)
+        </release>
         <release version="1.0.0" date="2015-05-21" min="2.6.0" max="2.6.x">
             - First release, supporting only core fields
         </release>
