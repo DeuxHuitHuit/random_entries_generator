@@ -20,26 +20,28 @@
         {
             return 'image_upload';
         }
-
-        protected function getFilename($field) {
+        
+        protected function getType($field)
+        {
             $validator = $field->get('validator');
-            $filename = 'image-%s';
             if (preg_match('/jpe?\??g/i', $validator) == 1) {
-                $filename .= '.jpg';
+                return '.jpg';
             }
             else if (preg_match('/png/i', $validator) == 1) {
-                $filename .= '.png';
+                return'.png';
             }
             else if (preg_match('/gif/i', $validator) == 1) {
-                $filename .= '.gif';
+                return '.gif';
             }
             else if (preg_match('/svg/i', $validator) == 1) {
-                $filename .= '.svg';
+                return'.svg';
             }
-            else {
-                $filename .= '.bmp';
-            }
-            return sprintf($filename, self::$seed++);
+            return '.bmp';
+        }
+
+        protected function getFilename($field)
+        {
+            return sprintf('image-%s%s', self::$seed++, $this->getType($field));
         }
 
         protected function findValue($field, $value, $default) {
@@ -61,22 +63,20 @@
             }
             $filename = $this->getFilename($field);
             $filepath = $field->getFilePath($filename);
-            touch($filepath);
-            $type = General::getMimeType($filepath);
             $width = $this->findValue($field, 'width', 1920);
             $height = $this->findValue($field, 'height', 1080);
             $image = ImageGenerator::generate(array(
                 'width' => $width,
                 'height' => $height,
                 'filepath' => $filepath,
-                'type' => $type,
+                'type' => $this->getType($field),
             ));
             if (!$image) {
                 throw new Exception("Failed to download random image");
             }
             return array(
                 'file' => $filename,
-                'mimetype' => $type,
+                'mimetype' => General::getMimeType($filepath),
                 'size' => filesize($filepath),
                 'meta' => serialize($field->getMetaInfo($filepath, $type))
             );

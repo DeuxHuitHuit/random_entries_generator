@@ -57,7 +57,7 @@
             $url = sprintf($options['url-format'],
                 $options['width'], $options['height'],
                 $backgroundcolor, $foregroundcolor,
-                $type
+                $options['type']
             );
             return static::request($url, $options['filepath']);
         }
