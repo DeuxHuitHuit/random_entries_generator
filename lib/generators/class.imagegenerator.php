@@ -30,19 +30,19 @@
         {
             $ch = curl_init($url);
             $fp = fopen($filepath, "w");
-            curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
-            curl_setopt( $ch, CURLOPT_HEADER, false );
-            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_HEADER, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
-            curl_setopt( $ch, CURLOPT_USERAGENT, Symphony::Configuration()->get('useragent', 'general'));
-            $content = curl_exec( $ch );
-            $status = curl_getinfo( $ch );
+            curl_setopt($ch, CURLOPT_USERAGENT, Symphony::Configuration()->get('useragent', 'general'));
+            $content = curl_exec($ch);
+            $status = curl_getinfo($ch);
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             $success = $httpCode == 200;
             if ($success) {
                 fwrite($fp, $content);
             }
-            curl_close( $ch );
+            curl_close($ch);
             fclose($fp);
             return $success;
         }
