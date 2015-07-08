@@ -74,11 +74,12 @@
             if (!$image) {
                 throw new Exception("Failed to download random image");
             }
+            $mime = General::getMimeType($filepath);
             return array(
                 'file' => $filename,
-                'mimetype' => General::getMimeType($filepath),
+                'mimetype' => $mime,
                 'size' => filesize($filepath),
-                'meta' => serialize($field->getMetaInfo($filepath, $type))
+                'meta' => serialize($field->getMetaInfo($filepath, $mime))
             );
         }
     }
