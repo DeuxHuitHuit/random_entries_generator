@@ -47,11 +47,11 @@
         protected function findValue($field, $value, $default) {
             $min = General::intval($field->get('min_' . $value));
             $max = General::intval($field->get('max_' . $value));
-            if ($max > 0) {
-                return $max;
-            }
             if ($min > 0) {
                 return $min;
+            }
+            if ($max > 0) {
+                return $max;
             }
             return $default;
         }
