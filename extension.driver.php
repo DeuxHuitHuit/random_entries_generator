@@ -65,7 +65,8 @@
             if ($canInclude && class_exists('LSE', false)) {
                 $section = LSE::getSection($c['context']['section_handle']);
                 if ($section) {
-                    $canInclude = LSE::getTotalEntries($section) < LSE::getMaxEntries($section);
+                    $max = LSE::getMaxEntries($section);
+                    $canInclude = $max == 0 || LSE::getTotalEntries($section) < $max;
                 }
             }
             return $canInclude;
