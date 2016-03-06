@@ -58,7 +58,7 @@
             $driver = $c['driver'];
             $page = $c['context']['page'];
             $canInclude = Symphony::Engine()->isLoggedIn() && (
-                ($driver == 'publish' && $page == 'index') ||
+                ($driver == 'publish') ||
                 ($driver == 'blueprintssections' && $c['context'][0] == 'edit')
             );
             // Check Limit Section Entries, if it exists
