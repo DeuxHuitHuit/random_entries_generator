@@ -19,6 +19,11 @@
         </author>
     </authors>
     <releases>
+        <release version="1.1.4" date="2016-03-06" min="2.6.0" max="2.x.x">
+            - Fixed wrong url redirection
+            - Compatibility with Limit Section Entries
+            - Show the button on all publish pages
+        </release>
         <release version="1.1.3" date="2015-07-08" min="2.6.0" max="2.6.x">
             - Fixed missing width and height attributes for images
             - Use min values instead of max values when generating an image (#5)
