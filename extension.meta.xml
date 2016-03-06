@@ -19,6 +19,9 @@
         </author>
     </authors>
     <releases>
+        <release version="1.1.5" date="2016-03-06" min="2.6.0" max="2.x.x">
+            - Fixed a regression where Limit Section Entries would prevent the button from being included in unlimited sections.
+        </release>
         <release version="1.1.4" date="2016-03-06" min="2.6.0" max="2.x.x">
             - Fixed wrong url redirection
             - Compatibility with Limit Section Entries
