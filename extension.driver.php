@@ -57,10 +57,18 @@
             $c = Administration::instance()->getPageCallback();
             $driver = $c['driver'];
             $page = $c['context']['page'];
-            return Symphony::Engine()->isLoggedIn() && (
+            $canInclude = Symphony::Engine()->isLoggedIn() && (
                 ($driver == 'publish' && $page == 'index') ||
                 ($driver == 'blueprintssections' && $c['context'][0] == 'edit')
             );
+            // Check Limit Section Entries, if it exists
+            if ($canInclude && class_exists('LSE', false)) {
+                $section = LSE::getSection($c['context']['section_handle']);
+                if ($section) {
+                    $canInclude = LSE::getTotalEntries($section) < LSE::getMaxEntries($section);
+                }
+            }
+            return $canInclude;
         }
 
         /* ********* INSTALL/UPDATE/UNINSTALL ******* */
