@@ -67,7 +67,7 @@
                 if (!$entry->commit()) {
                     throw new Exception('Could not commit entry!');
                 }
-                redirect(sprintf('%s/publish/%s/edit/%s/saved/', APPLICATION_URL, $section->get('handle'), $entry->get('id')));
+                redirect(sprintf('%s/publish/%s/edit/%s/created/', APPLICATION_URL, $section->get('handle'), $entry->get('id')));
                 die;
             }
         }
