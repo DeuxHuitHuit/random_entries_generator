@@ -39,7 +39,6 @@
             if (isset($_GET['s']) && !empty($_GET['s'])) {
                 $s = General::sanitize($_GET['s']);
                 $sectionId = 0;
-                $authorId = Symphony::Author()->get('id');
                 $section = NULL;
                 if (ctype_digit($s)) {
                     $sectionId = General::intval($s);
@@ -57,7 +56,6 @@
                 }
                 $fields = $section->fetchFields();
                 $entry = EntryManager::create();
-                $entry->set('author_id', $authorId);
                 $entry->set('section_id', $sectionId);
                 foreach ($fields as $field) {
                     $adapter = FieldAdapterManager::get($field->get('type'));
