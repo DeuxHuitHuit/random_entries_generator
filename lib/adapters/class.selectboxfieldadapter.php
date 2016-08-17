@@ -35,16 +35,17 @@
                 $result = Symphony::Database()->fetch("
                     SELECT * 
                         FROM tbl_entries_data_$fieldId
-                        LIMIT 1
                 ");
                 if (empty($result)) {
                     return null;
                 }
-                if (isset($result[0]['value'])) {
-                    $options[0] = $result[0]['value'];
+                $maxResult = count($result);
+                $randomResult = rand(0,$maxResult);
+                if (isset($result[$randomResult]['value'])) {
+                    $options[0] = $result[$randomResult]['value'];
                 }
-                else if (isset($result[0]['file'])) {
-                    $options[0] = $result[0]['file'];
+                else if (isset($result[$randomResult]['file'])) {
+                    $options[0] = $result[$randomResult]['file'];
                 }
             }
             
