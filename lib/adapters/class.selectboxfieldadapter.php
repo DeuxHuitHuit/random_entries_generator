@@ -35,7 +35,6 @@
                 $result = Symphony::Database()->fetch("
                     SELECT * 
                         FROM tbl_entries_data_$fieldId
-                        LIMIT 0, 1000
                 ");
                 if (empty($result)) {
                     return null;
