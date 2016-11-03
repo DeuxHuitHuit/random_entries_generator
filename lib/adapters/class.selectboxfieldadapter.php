@@ -1,6 +1,6 @@
 <?php
     /*
-    Copyrights: Deux Huit Huit 2015
+    Copyrights: Deux Huit Huit 2015-2016
     LICENCE: MIT, http://deuxhuithuit.mit-license.org/
     */
     
@@ -22,9 +22,9 @@
         public function data($section, $field)
         {
             $static = $field->get('static_options') != null;
-            $options = array();
+            $value = null;
             if ($static) {
-                $options = explode(',', $field->get('static_options'));
+                $value = self::random(explode(',', $field->get('static_options')));
             }
             else {
                 $fieldId = explode(',', $field->get('dynamic_options'));
@@ -35,22 +35,26 @@
                 $result = Symphony::Database()->fetch("
                     SELECT * 
                         FROM tbl_entries_data_$fieldId
+                        ORDER BY RAND()
                         LIMIT 1
                 ");
                 if (empty($result)) {
                     return null;
                 }
                 if (isset($result[0]['value'])) {
-                    $options[0] = $result[0]['value'];
+                    $value = $result[0]['value'];
                 }
                 else if (isset($result[0]['file'])) {
-                    $options[0] = $result[0]['file'];
+                    $value = $result[0]['file'];
+                }
+                else {
+                    return null;
                 }
             }
             
             return array(
-                'value' => $options[0],
-                'handle' => Lang::createHandle($options[0])
+                'value' => $value,
+                'handle' => Lang::createHandle($value)
             );
         }
     }

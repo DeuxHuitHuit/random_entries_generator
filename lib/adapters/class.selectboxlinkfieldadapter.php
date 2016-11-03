@@ -1,6 +1,6 @@
 <?php
     /*
-    Copyrights: Deux Huit Huit 2015
+    Copyrights: Deux Huit Huit 2015-2016
     LICENCE: MIT, http://deuxhuithuit.mit-license.org/
     */
     
@@ -32,6 +32,7 @@
             $result = Symphony::Database()->fetch("
                 SELECT `entry_id`
                     FROM tbl_entries_data_$fieldId
+                    ORDER BY RAND()
                     LIMIT 1
             ");
             if (empty($result) || !is_array($result) || !is_array($result[0])) {
