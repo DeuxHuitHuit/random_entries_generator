@@ -21,17 +21,18 @@
 
         public function data($section, $field)
         {
-            $options = array();
             $fieldId = $field->get('related_field_id');
-            if (is_array($fieldId)) {
-                $fieldId = static::random($fieldId);
+            if (!is_array($fieldId)) {
+                return null;
             }
-            if (!Symphony::Database()->tableExists("tbl_entries_data_$fieldId")) {
+            $tblName = static::randomTable($fieldId);
+            if (!$tblName) {
                 return null;
             }
             $result = Symphony::Database()->fetch("
                 SELECT `entry_id`
-                    FROM tbl_entries_data_$fieldId
+                    FROM `$tblName`
+                    WHERE `entry_id` IS NOT NULL
                     ORDER BY RAND()
                     LIMIT 1
             ");

@@ -126,6 +126,43 @@
         }
 
         /**
+         * Returns a not empty random table from the list of fields.
+         * If the array is empty, it returns null
+         *
+         * @param array $fields - The fields to pick from
+         *
+         * @return string - a table name from the $fields array or null
+         */
+        protected static final function randomTable(array $fields)
+        {
+            $tables = array();
+            while (!empty($fields)) {
+                $fieldId = array_shift($fields);
+                $tblName = "tbl_entries_data_$fieldId";
+                if (!Symphony::Database()->tableExists($tblName)) {
+                    continue;
+                }
+                $count = (int)Symphony::Database()->fetchVar('c', 0, "SELECT count(*) as `c` FROM `$tblName`");
+                if ($count < 1) {
+                    continue;
+                }
+                $tables[$tblName] = $count;
+            }
+            if (empty($tables)) {
+                return null;
+            }
+            if (max($tables) > 1) {
+                $r = rand(1, 100);
+                if ($r > 66) {
+                    $tables = array_filter($tables, function ($value) {
+                        return $value > 1;
+                    });
+                }
+            }
+            return static::random(array_keys($tables));
+        }
+
+        /**
          * Forwards a call to Field::processRawFieldData using the $value
          * parameter as fake "raw" data. Also checks that the output status
          * is Field::__OK__. Returns null otherwise.

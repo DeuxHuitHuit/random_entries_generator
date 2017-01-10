@@ -28,27 +28,32 @@
             }
             else {
                 $fieldId = explode(',', $field->get('dynamic_options'));
-                $fieldId = static::random($fieldId);
-                if (!Symphony::Database()->tableExists("tbl_entries_data_$fieldId")) {
+                $tblName = static::randomTable($fieldId);
+                if (!$tblName) {
                     return null;
                 }
                 $result = Symphony::Database()->fetch("
-                    SELECT * 
-                        FROM tbl_entries_data_$fieldId
+                    SELECT *
+                        FROM `$tblName`
+                        WHERE `entry_id` IS NOT NULL
                         ORDER BY RAND()
                         LIMIT 1
                 ");
                 if (empty($result)) {
                     return null;
                 }
-                if (isset($result[0]['value'])) {
-                    $value = $result[0]['value'];
+                $result = current($result);
+                if (!$result) {
+                    return null;
                 }
-                else if (isset($result[0]['file'])) {
-                    $value = $result[0]['file'];
+                if (isset($result['value'])) {
+                    $value = $result['value'];
+                }
+                else if (isset($result['file'])) {
+                    $value = $result['file'];
                 }
                 else {
-                    return null;
+                    $value = current($result);
                 }
             }
             
