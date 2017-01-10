@@ -152,7 +152,7 @@
                 return null;
             }
             if (max($tables) > 1) {
-                $r = rand(1, 100);
+                $r = mt_rand(1, 100);
                 if ($r > 66) {
                     $tables = array_filter($tables, function ($value) {
                         return $value > 1;
