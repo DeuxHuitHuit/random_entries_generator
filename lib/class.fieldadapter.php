@@ -197,6 +197,9 @@
             if (!$locale) {
                 $locale = Symphony::Author()->get('language');
             }
+            if (isset(self::$fakerLocalesMap[$locale])) {
+                $locale = self::$fakerLocalesMap[$locale];
+            }
             if (isset(self::$fakers[$locale])) {
                 return self::$fakers[$locale];
             }
@@ -205,4 +208,11 @@
             self::$fakers[$locale] = $faker;
             return $faker;
         }
+        private static $fakerLocalesMap = array(
+            'fr' => 'fr_FR',
+            'en' => 'en_US',
+            'es' => 'es_ES',
+            'it' => 'it_IT',
+            'de' => 'de_DE',
+        );
     }
