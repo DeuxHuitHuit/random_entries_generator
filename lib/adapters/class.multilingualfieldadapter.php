@@ -23,10 +23,9 @@
         {
             $multingual_values = array();
             foreach (FLang::getLangs() as $lc) {
-                // fix length since we add chars...
-                $length = General::intval($field->get('text_length')) - strlen($lc) - 1;
+                $length = General::intval($field->get('text_length'));
                 $value = $this->generateValue($field, $length, $lc);
-                $multingual_values[$lc] = strtoupper($lc) . ' ' . $value;
+                $multingual_values[$lc] = $value;
             }
             return $this->processRawFieldData($field, $multingual_values);
         }
