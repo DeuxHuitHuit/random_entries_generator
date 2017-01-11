@@ -1,6 +1,6 @@
 # Random Entries Generator
 
-Version: 1.1.x
+Version: 1.2.x
 
 > A really quick way to create dummy entries for Symphony CMS
 

@@ -5,7 +5,7 @@
         A really quick way to create dummy entries for Symphony CMS
     </description>
     <repo type="github">https://github.com/DeuxHuitHuit/random_entries_generator</repo>
-    <url type="discuss">http://www.getsymphony.com/discuss/thread//</url>
+    <url type="discuss">http://www.getsymphony.com/discuss/thread/110503/</url>
     <url type="issues">https://github.com/DeuxHuitHuit/random_entries_generator/issues</url>
     <types>
         <type>Random</type>
@@ -19,6 +19,11 @@
         </author>
     </authors>
     <releases>
+        <release version="1.2.0" date="2016-01-11" min="2.6.0" max="2.x.x">
+            - Better localized data (#12)
+            - Basic formatter (markdown) support (#8)
+            - Basic validator support (#4)
+        </release>
         <release version="1.1.7" date="2016-01-10" min="2.6.0" max="2.x.x">
             - Supported on PHP 7
             - Fixed author_id is missing
