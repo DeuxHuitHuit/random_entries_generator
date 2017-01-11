@@ -21,8 +21,10 @@
 
         public function data($section, $field)
         {
+            $validator = $field->get('validator');
             $value = TextGenerator::generate(array(
-                'max-length' => 80
+                'max-length' => mt_rand(20, 60),
+                'validator' => $validator,
             ));
             return array(
                 'value' => $value,

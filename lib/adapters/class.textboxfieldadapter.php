@@ -36,13 +36,17 @@
         public function generateValue($field, $length = null, $locale = null)
         {
             $size = $field->get('text_size');
+            $formatter = $field->get('text_formatter');
+            $validator = $field->get('text_validator');
             if ($length == null) {
-                $length = max(0, General::intval($field->get('text_length')));
+                $length = General::intval($field->get('text_length'));
             }
             return TextGenerator::generate(array(
-                'max-length' => $size == 'single' ? min(80, $length) : $length,
+                'max-length' => $size == 'single' ? min(mt_rand(20, 60), $length) : $length,
                 'paragraphs' => self::$sizes[$size],
                 'locale' => $locale,
+                'formatter' => $formatter,
+                'validator' => $validator,
             ));
         }
     }

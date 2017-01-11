@@ -22,8 +22,10 @@
         public function data($section, $field)
         {
             $size = General::intval($field->get('size'));
+            $formatter = $field->get('formatter');
             $value = TextGenerator::generate(array(
-                'paragraphs' => $size > 0 ? (int)($size / 5) : 1
+                'paragraphs' => $size > 0 ? (int)($size / 5) : 1,
+                'formatter' => $formatter,
             ));
             return array(
                 'value' => $value,
