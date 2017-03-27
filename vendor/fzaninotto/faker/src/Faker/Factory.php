@@ -32,7 +32,7 @@ class Factory
      */
     protected static function getProviderClassname($provider, $locale = '')
     {
-        if ($providerClass = self::findProviderClassname($provider, $locale)) {
+        if (!empty($locale) && $providerClass = self::findProviderClassname($provider, $locale)) {
             return $providerClass;
         }
         // fallback to default locale
