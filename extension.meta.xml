@@ -19,6 +19,9 @@
         </author>
     </authors>
     <releases>
+        <release version="1.2.1" date="2017-03-27" min="2.6.0" max="2.x.x">
+            - Fixed a bug in Faker when locale is empty (again #2)
+        </release>
         <release version="1.2.0" date="2016-01-11" min="2.6.0" max="2.x.x">
             - Better localized data (#12)
             - Basic formatter (markdown) support (#8)
