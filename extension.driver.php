@@ -3,7 +3,7 @@
     Copyrights: Deux Huit Huit 2015
     LICENCE: MIT, http://deuxhuithuit.mit-license.org/
     */
-    
+
     if(!defined("__IN_SYMPHONY__")) die("<h2>Error</h2><p>You cannot directly access this file</p>");
     require_once(EXTENSIONS . '/random_entries_generator/lib/class.fieldadaptermanager.php');
     require_once(EXTENSIONS . '/random_entries_generator/vendor/autoload.php');
@@ -43,10 +43,14 @@
             if (is_array($c['context']) && $this->mustIncludeButton()) {
                 $page = $context['oPage'];
                 $section = General::sanitize(isset($c['context']['section_handle']) ? $c['context']['section_handle'] : $c['context'][1]);
-                $button = new XMLElement('a', __('Create random entry'), array(
-                    'href' => APPLICATION_URL . '/extension/random_entries_generator/create/?s=' . $section,
-                    'class' => 'button'
-                ));
+                $button = new XMLElement(
+                    'a',
+                    Widget::SVGIcon('random') . '<span><span>' . __('Create random entry') . '</span></span>',
+                    array(
+                        'href' => APPLICATION_URL . '/extension/random_entries_generator/create/?s=' . $section,
+                        'class' => 'button'
+                    )
+                );
                 $page->insertAction($button, true);
             }
         }
