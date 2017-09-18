@@ -17,14 +17,8 @@
             'width' => 1920,
             'height' => 1080,
             'filepath' => '/tmp/image.jpg',
-            'type' => 'jpg',
-            'url-format' => 'http://placehold.it/%sx%s/%s/%s.%s'
+            'url-format' => 'https://source.unsplash.com/random/%sx%s',
         );
-
-        public static function fixColor($hexColor)
-        {
-            return str_replace('#', '', $hexColor);
-        }
 
         public static function request($url, $filepath)
         {
@@ -51,13 +45,8 @@
         {
             $value = array();
             $options = array_merge($options, self::$defaultOptions, $options);
-            $faker = FieldAdapter::faker();
-            $foregroundcolor = static::fixColor($faker->hexcolor);
-            $backgroundcolor = static::fixColor($faker->hexcolor);
             $url = sprintf($options['url-format'],
-                $options['width'], $options['height'],
-                $backgroundcolor, $foregroundcolor,
-                $options['type']
+                $options['width'], $options['height']
             );
             return static::request($url, $options['filepath']);
         }
