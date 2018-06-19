@@ -48,7 +48,11 @@
                     $sectionId = SectionManager::fetchIDFromHandle($s);
                 }
                 if (!!$sectionId) {
-                    $section = SectionManager::fetch($sectionId);
+                    $section = (new SectionManager)
+                        ->select()
+                        ->section($sectionId)
+                        ->execute()
+                        ->next();
                 }
                 if (!$section || empty($section)) {
                     $this->result = sprintf('Section `<code>%s</code>` not found.', $s);
