@@ -3,9 +3,9 @@
     Copyrights: Deux Huit Huit 2015
     LICENCE: MIT, http://deuxhuithuit.mit-license.org/
     */
-    
+
     if(!defined("__IN_SYMPHONY__")) die("<h2>Error</h2><p>You cannot directly access this file</p>");
-    
+
     /**
      *
      * @author Deux Huit Huit
@@ -40,7 +40,7 @@
                 $s = General::sanitize($_GET['s']);
                 $sectionId = 0;
                 $authorId = Symphony::Author()->get('id');
-                $section = NULL;
+                $section = null;
                 if (ctype_digit($s)) {
                     $sectionId = General::intval($s);
                 }
@@ -48,7 +48,11 @@
                     $sectionId = SectionManager::fetchIDFromHandle($s);
                 }
                 if (!!$sectionId) {
-                    $section = SectionManager::fetch($sectionId);
+                    $section = (new SectionManager)
+                        ->select()
+                        ->section($sectionId)
+                        ->execute()
+                        ->next();
                 }
                 if (!$section || empty($section)) {
                     $this->result = sprintf('Section `<code>%s</code>` not found.', $s);

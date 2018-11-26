@@ -3,9 +3,9 @@
     Copyrights: Deux Huit Huit 2015
     LICENCE: MIT, http://deuxhuithuit.mit-license.org/
     */
-    
+
     if(!defined("__IN_SYMPHONY__")) die("<h2>Error</h2><p>You cannot directly access this file</p>");
-    
+
     /**
      *
      * @author Deux Huit Huit
@@ -36,7 +36,11 @@
                     $entries = self::$entries[$section];
                 }
                 else {
-                    $entries = EntryManager::fetch(null, $section, null, null, null, null, false, false, null, false);
+                    $entries = (new EntryManager)
+                        ->select()
+                        ->section($section)
+                        ->execute()
+                        ->rows();
                     self::$entries[$section] = $entries;
                 }
                 if (empty($entries)) {
