@@ -69,6 +69,10 @@
                     $canInclude = $max == 0 || LSE::getTotalEntries($section) < $max;
                 }
             }
+            // Check Read Only Authors, if it exists
+            if ($canInclude && class_exists('extension_readonly_authors', false)) {
+                $canInclude = !extension_readonly_authors::isReadOnly(Symphony::Author()->get('id'));
+            }
             return $canInclude;
         }
 
